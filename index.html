@@ -1,0 +1,237 @@
+
+<html>
+
+<head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-6" http-equiv="encoding">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+
+    <title>sunhyuck prompt generator</title>
+
+    <style type="text/css">
+        body {
+          background-image: url('https://64.media.tumblr.com/0dbf30f6161f4492035f8a61421df8fb/eb38b1ef94c9719f-8e/s500x750/f45cd59b966ecd31ce260d1f1b583f4ee3909d69.png') ;
+        }
+        b body {
+            font-family: 'Poppins', sans-serif;
+            font-size: 12px;
+            color: #000000;
+            line-height: 16px;
+        }
+
+        a {
+            color: #cab1da;
+            text-decoration: none;
+        }
+
+        a:hover {}
+
+        b,
+        strong {}
+
+        i,
+        em {}
+
+        pre {}
+
+        blockquote {}
+
+        #main {
+            width: 600px;
+            margin: auto;
+            font-size: 12px;
+        }
+
+        #pera {
+            position: absolute;
+            border-radius: 5px;
+            border: 1px solid #e2e2e2;
+            margin: 150px 0px 0px 10px;
+            width: 150px;
+            padding: 5px;
+            background: #fff;
+            font-family: Poppins;
+            font-size: 12px;
+            color: #343434;
+            line-height: 12px;
+            font-style: italic;
+            text-align: center;
+        }
+
+        #perb {
+            position: absolute;
+            border-radius: 5px;
+            border: 1px solid #e2e2e2;
+            margin: 150px 0px 0px 170px;
+            width: 150px;
+            padding: 5px;
+            background: #fff;
+            font-family: poppins;
+            font-size: 12px;
+            color: #343434;
+            line-height: 12px;
+            font-style: italic;
+            text-align: center;
+        }
+
+        #go {
+            font-family: poppins;
+            font-size: 12px;
+            position: absolute;
+            border-radius: 5px;
+            border: 1px solid #e2e2e2;
+            margin: 150px 0px 0px 465px;
+            width: 30px;
+            padding: 5px 5px 5px 5px;
+            background: #fff;
+            cursor: pointer;
+            color: #343434;
+            font-weight: bold;
+            text-align: center;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        #go:hover {
+            margin: 150px 0px 0px 466px;
+            background: #cab1da;
+            color: #000;
+        }
+
+        #promptbox {
+            font-family: poppins; 
+            color: #343434;
+            position: absolute;
+            border-radius: 5px;
+            border: 1px solid #e2e2e2;
+            text-align:center;
+            padding: 20px;
+            background: #fff;
+            margin: 200px 0px 300px 0px;
+            width: 590px;
+            font-size: 12px;
+        }
+
+        #prompt {
+          font-size: 12px;
+          font-family: poppins; 
+          letter-spacing: 0.05em;
+          word-spacing: 0.015em;
+          line-height: 150%;
+        }
+        
+        #swap { 
+          font-family: Poppins; 
+          font-weight:bold;
+          position: absolute; 
+          border-radius: 5px; 
+          border: 1px solid #e2e2e2; 
+          margin: 150px 0px 0px 520px; 
+          width: 85px; 
+          padding: 5px 5px 5px 5px; 
+          background: #fff; 
+          cursor: pointer; 
+          text-align: center; 
+          -webkit-user-select: none; 
+          -moz-user-select: none; 
+          -ms-user-select: none; 
+          user-select: none; 
+        
+        }
+        
+        #swap:hover { margin: 601px Opx Opx 601px; background: #cab1da; 
+        }
+    
+        #txt {
+            font-style: none;
+            float: center;
+            font-size: 8px;
+        }
+
+
+        
+    </style>
+
+    <script type="text/javascript">
+
+        var prompts = [
+            "<strong>{B}</strong>: Do you like it when I touch you like this, <strong>{A}</strong>?",
+            
+            ]
+      
+function clear1() {
+
+        document.getElementById("pera").value = "";
+        document.getElementById("pera").style.fontStyle = "normal";
+    }
+
+    function clear2() {
+
+        document.getElementById("perb").value = "";
+        document.getElementById("perb").style.fontStyle = "normal";
+    }
+    
+    
+    var A, B;
+    var str; 
+    
+     function prompt() {
+
+        // Get names of OTP
+        A = document.getElementById("pera").value;
+        B = document.getElementById("perb").value;
+
+        // Get random prompt
+        var R1 = Math.floor(Math.random() * prompts.length);
+        str = prompts[R1] 
+
+        // Replace {A} & {B} in prompt with OTP names
+        var result = str.replace(/{A}/g, A).replace(/{B}/g, B);
+        document.getElementById("prompt").innerHTML = result;
+    }
+    
+       function swapname() { 
+        //Swapping OTP names     
+       var temp = A;
+       A = B;
+       B = temp;
+        
+       var result = str.replace(/{A}/g, A).replace(/{B}/g, B); 
+       document.getElementById("prompt").innerHTML = result; 
+}c
+    
+    </script>
+
+</head>
+
+<body>
+
+    
+
+    <div id="main">
+
+        <form><input type="text" name="otp1" value="A" id="pera" onfocus="clear1()"></form>
+        <form><input type="text" name="otp2" value="B" id="perb" onfocus="clear2()"></form>
+        <div id="go" onclick="prompt()">Go!</div>
+        <div id="swap" onclick="swapname()">Swap A & B</div>
+        
+        <div id="promptbox">
+            <b>RANDOM PROMPT</b>
+            <br><small>FLUFF & ANGST ONLY. VISIT <a href="">HERE</a> FOR NSFW PROMPT GENERATOR.</small><br>
+            <br><br>
+            <span id="prompt"></span>
+            
+        <br><br><br>
+            <div id="txt"><br><b>PROMPT GENERATOR 1 BY 2020 <a href="https://sunhyuck.tumblr.com">SUNHYUCK ‹⁄☼›</a></b><br><script type='text/javascript' src='https://ko-fi.com/widgets/widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#cab1da', 'A0A42KEWV');kofiwidget2.draw();</script><br><script language="JavaScript">var fhsh = document.createElement('script');var fhs_id_h = "3356458";
+fhsh.src = "//freehostedscripts.net/ocount.php?site="+fhs_id_h+"&name=Visits&a=1";
+document.head.appendChild(fhsh);document.write("<span id='h_"+fhs_id_h+"'></span>");
+</script>
+            <br <="" div="">
+            
+            </div>
+
+
+</div></div></body></html>
